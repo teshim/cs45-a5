@@ -29,3 +29,33 @@ if $CALCULATOR 3 @ 2; then  # If the return code of $PROGRAM is zero (i.e. succe
   echo 'ERROR! An invalid run of the application (3 @ 2) apparently succeeded?!'
   exit 1
 fi
+
+# Test 04: Test subtraction with positive result
+if [[ $($CALCULATOR 14 - 7) -ne 7 ]]; then
+    echo 'ERROR! Subtraction not implemented correctly.'
+    exit 1
+fi
+
+# Test 05: Simple multiplication
+if [[ $($CALCULATOR 4 * 6) -ne 24 ]]; then
+    echo 'ERROR! Multiplication not implemented correctly.'
+    exit 1
+fi
+
+# Test 06: Division with integer result
+if [[ $($CALCULATOR 25 / 5) -ne 5 ]]; then
+    echo 'ERROR! Division not implemented correctly.'
+    exit 1
+fi
+
+# Test 07: Division with truncation / rounding
+if [[ $($CALCULATOR 100 / 9) -ne 11 ]]; then
+    echo 'ERROR! Division breaks when truncating/rounding.'
+    exit 1
+fi
+
+# Test 08: Multiplication with negative numbers
+if [[ $($CALCULATOR -3 * 7) -ne -21 ]]; then
+    echo 'ERROR! Multiplication breaks with negative input.'
+    exit 1
+fi

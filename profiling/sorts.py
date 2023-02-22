@@ -1,5 +1,5 @@
 import random
-
+import line_profiler
 
 def test_sorted(fn, iters=1000):
     for i in range(iters):
@@ -8,7 +8,6 @@ def test_sorted(fn, iters=1000):
         # print(fn.__name__, fn(l))
 
 def insertionsort(array):
-
     for i in range(len(array)):
         j = i-1
         v = array[i]
